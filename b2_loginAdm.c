@@ -19,7 +19,7 @@
 #include <string.h>
 
 #include "_Terminal.h"
-#include "a_cabecalho_para_teste.h"
+#include "a_cabecalho_main.h"
 
 #define MAX 10
 
@@ -57,16 +57,34 @@ void loginAdm(void)
             return;
         }
         else if(cont == 1)
-        { 
-            printf("\n     Voce errou a 3 vezes ...\n");
-            getchar();
-            menuInicial();
-        }
-        else
-        {   
-            cont--;
-            printf("\n     Voce tem mais %d tentativas ... \n", cont);
-        }
+            { 
+                printf("\n     Voce errou a 3 vezes ...\n");
+                getchar();
+                menuInicial();
+            }
+            else
+            {   
+                cont--;
+                printf("     Acesso Negado ... ! :( \n\n");
+                printf("     Pressione ENTER para DIGITAR NOVAMENTE, \n");
+                printf("     ou QUALQUER TECLA para voltar ao MENU INICIAL\n\n");
+                printf("     você ainda tem %d tentativas, \n", cont);
+
+                char opc;
+                opc = getchar();
+                fflush(stdin);
+
+                switch(opc)
+                {
+                    case 10:
+                        break;
+
+                    default:
+
+                        printf("Opcão invalida!");
+                        return;
+                }
+            }
     }
     while(1);
 
@@ -89,25 +107,25 @@ int validaLogin(char *strLogin, char *strSenha)
     {
         if( strcmp (strSenha, senhaSis) == 10 )
         {
-            printf("\n");
-            printf("     ACESSO PERMITIDO! \n");
-            printf("     Pressione enter para digitar novamente! \n");
-            getchar();
+            // printf("\n");
+            // printf("     ACESSO PERMITIDO! \n");
+            // printf("     Pressione enter para digitar novamente! \n");
+            // getchar();
             return 1;
         }else
         {
-            printf("\n");
-            printf("     SENHA INCORRETA! \n");
-            printf("     Pressione enter para digitar novamente! \n");
-            getchar();
+            // printf("\n");
+            // printf("     SENHA INCORRETA! \n");
+            // printf("     Pressione enter para digitar novamente! \n");
+            // getchar();
             return 0;        
         }
     }
     else
     {
-        printf("     USUARIO NAO EXISTE! \n");
-        printf("     Pressione enter para digitar novamente! ");
-        getchar();
+        // printf("     USUARIO NAO EXISTE! \n");
+        // printf("     Pressione enter para digitar novamente! ");
+        // getchar();
         return 0;
 
     }

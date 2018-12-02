@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "a_cabecalho_para_teste.h"
+#include "a_cabecalho_main.h"
 #include "_Terminal.h"
 
 void main()

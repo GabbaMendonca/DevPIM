@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 #include "_Terminal.h"
-#include "a_cabecalho_para_teste.h"
+#include "a_cabecalho_main.h"
 
 
 /*Funcao TelaInicial*/

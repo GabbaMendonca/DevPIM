@@ -3,13 +3,14 @@
 
 #include "_Terminal.h"
 
+
 ////////////////////////////TELA DO LOGIN DE USUARIO//////////////////////
 void loginUsuario(void)
 {
     int resp1, cont, cpf, cpfValido;
     cont = 4;
 
-    cpfValido = 0;
+    cpfValido = 1;
 
     do
     {
@@ -19,6 +20,8 @@ void loginUsuario(void)
         printf("|                      LOGIN USUARIO                       |\n");
         printf("|----------------------------------------------------------|\n");
         printf("\n");
+
+        printf("|                   ===    LOGIN     ===                   |\n\n");
 
         printf("     Digite o CPF SEM PONTOS ou ESPAÇOS\n");
         printf("     para localizar seu cadastro ... \n\n");
@@ -41,6 +44,8 @@ void loginUsuario(void)
 
             if (cont == 0 )
             {
+                printf("\n     Voce errou a 3 vezes ...\n");
+                getchar();
                 return;
             }
             else
@@ -48,11 +53,8 @@ void loginUsuario(void)
 
                 printf("     Usuario nao encontrado ... ! :( \n\n");
                 printf("     Pressione ENTER para DIGITAR NOVAMENTE, \n");
+                printf("     ou QUALQUER TECLA para voltar ao MENU INICIAL\n\n");
                 printf("     você ainda tem %d tentativas, \n", cont);
-                printf("     ou QUALQUER TECLA para voltar ao MENU INICIAL ");
-
-                //printf("Dados estão corretos ? ( S / N ) : ");
-
 
                 char opc;
                 opc = getchar();
