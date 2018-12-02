@@ -17,5 +17,8 @@ void menuAdm();
 void cadastrarPalestra();
 void cadastrarPessoa();
 
+void auditorio();
+void selecionarLugar();
+
 #endif
 
