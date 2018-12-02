@@ -11,12 +11,10 @@
 void menuInicial();
 
 void loginAdm();
-
 void loginUsuario();
 
-
+void menuAdm();
 void cadastrarPalestra();
-
 void cadastrarPessoa();
 
 #endif

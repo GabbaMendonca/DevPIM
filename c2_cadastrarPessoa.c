@@ -75,12 +75,20 @@ void cadastrarPessoa()
 {
     PESSOA pessoa;
 
+    LIMPA_TERM
+    printf("\n\n");
+    printf("|----------------------------------------------------------|\n");
+    printf("|                   MENU ADMINISTRATIVO                    |\n");
+    printf("|----------------------------------------------------------|\n");
+    printf("\n");
+
+
     inseriPessoa(&pessoa);
     inseriEmail(&pessoa);
     inseriIdade(&pessoa);
     inseriCpf(&pessoa);
     inseriDeficiencia(&pessoa);
-    inseriDescDef(&pessoa);
+    exibirPessoa(&pessoa);
 }
 
 /*
@@ -130,18 +138,18 @@ void inseriDeficiencia(PESSOA *p)
         printf("Possui algum tipo de deficiencia ? ( S / N ) : ");
 
         
-        char opc[2];
-        //opc = getchar();
-        scanf("%s%*c", &opc[2]);
+        char opc;
+        // //opc = getchar();
+        scanf("%s%*c", &opc);
         fflush(stdin);
 
-        switch(opc[2])
+        // char opc;
+        // opc = getchar();
+        //fflush(stdin);
+
+        switch(opc)
         {
             case 's':
-                printf("Informe a deficiencia : ");
-                fgets(p->deficiencia, SIZE, stdin);
-                inseriDescDef(p);
-            return;
             case 'S':
                 printf("Informe a deficiencia : ");
                 fgets(p->deficiencia, SIZE, stdin);
@@ -149,9 +157,8 @@ void inseriDeficiencia(PESSOA *p)
             return;
 
             case 'n':
-            return;
             case 'N':
-            return;
+                return;
             
             default:
                 printf("Opcão invalida!");
@@ -186,7 +193,7 @@ void exibirPessoa(PESSOA *p)
         printf("Email ............. : %s", p->email);
         printf("Idade ............. : %d\n", p->idade);
         printf("CPF ............... : %d", p->cpf);
-        printf("Deficiencia ....... : %s \n", p->deficiencia);
+        printf("\nDeficiencia ....... : %s \n", p->deficiencia);
         printf("Descrição ......... : %s \n", p->descDef);
             
         printf("Dados estão corretos ? ( S / N ) : ");
@@ -231,7 +238,7 @@ void alteraDadosPessoa(PESSOA *p)
     LIMPA_TERM
     printf("( 1 ) >>> Nome .............. : %s", p->nome);
     printf("( 2 ) >>> Email ............. : %s", p->email);
-    printf("( 3 ) >>> Idade ............. : %d\n", p->idade);
+    printf("( 3 ) >>> Idade ............. : %d \n", p->idade);
     printf("( 4 ) >>> CPF ............... : %d", p->cpf);
     printf("( 5 ) >>> Deficiencia ....... : %s \n", p->deficiencia);
     printf("( 6 ) >>> Descrição ......... : %s \n", p->descDef);

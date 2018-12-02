@@ -54,7 +54,7 @@ void loginAdm(void)
 
         if (validaLogin(login, senha) == 1)
         {
-            return;
+            menuAdm();
         }
         else if(cont == 1)
             { 
