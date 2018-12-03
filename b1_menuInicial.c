@@ -37,6 +37,8 @@ void menuInicial()
     printf("     (1) >>> Para entrar na tela de usuario \n");
     printf("     (2) >>> Para entrar na tela de administrador \n\n");
 
+    printf("     (0) <<< Encerrar programa !\n\n");
+
 
     int opcao, verificaoOpc;
 
@@ -47,6 +49,9 @@ void menuInicial()
         
         switch (opcao)
         {
+            case 0:
+                break;
+
             case 1:
                 loginUsuario();
                 break;

@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "_Terminal.h"
+#include "a_cabecalho_main.h"
 
 #define CRIAR_MATRIZ criarMatriz ( filas, colunas, &cVertical, numCorredorVer, &cHorizontal, numCorredorHor );
 
@@ -158,7 +159,8 @@ void tamanhoDaMatriz(int *fil, int *col)
         scanf("%d%*c", &*col);
 
 
-        printf("Dados estão corretos ? ( S / N ) : ");
+        printf("Dados estão corretos ? ( S / N )\n");
+        printf("Digite Q parar abandonar o cadastro !\n");
 
         char opc;
         opc = getchar();
@@ -166,6 +168,11 @@ void tamanhoDaMatriz(int *fil, int *col)
 
         switch(opc)
         {
+            case 'q':
+            case 'Q':
+                menuInicial();
+                return;
+                
             case 's':
             case 'S':
                 return;
@@ -176,7 +183,7 @@ void tamanhoDaMatriz(int *fil, int *col)
 
             default:
 
-                printf("Opcão invalida!");
+                printf("Opcão invalida!\n\n");
                 break;
         }
 

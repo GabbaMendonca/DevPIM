@@ -18,6 +18,7 @@
 #include <stdlib.h>
 
 #include "_Terminal.h"
+#include "a_cabecalho_main.h"
 
 #define SIZE 100
 #define DESC 500
@@ -196,20 +197,20 @@ void exibirPessoa(PESSOA *p)
         printf("\nDeficiencia ....... : %s \n", p->deficiencia);
         printf("Descrição ......... : %s \n", p->descDef);
             
-        printf("Dados estão corretos ? ( S / N ) : ");
+        printf("Dados estão corretos ? ( S / N )\n");
+        printf("Digite Q parar abandonar o cadastro !\n");
 
         char opc;
         opc = getchar();
 
         switch(opc)
         {
-            case 's':
+            case 'q':
+            case 'Q':
+                menuInicial();
+                break;
 
-                printf("Dados gravados com sucesso !\n");
-                // GRAVAR DADOS
-                printf("Pressione ENTER para sair ... !");
-                getchar();
-            return;
+            case 's':
             case 'S':
 
                 printf("Dados gravados com sucesso !\n");
@@ -219,8 +220,6 @@ void exibirPessoa(PESSOA *p)
             return;
 
             case 'n':
-                alteraDadosPessoa(p);
-            break;
             case 'N':
                 alteraDadosPessoa(p);
             break;

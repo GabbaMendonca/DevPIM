@@ -66,8 +66,6 @@ void loginUsuario(void)
                         break;
 
                     default:
-
-                        printf("Opcão invalida!");
                         return;
                 }
                 

@@ -18,6 +18,7 @@
 #include <time.h>
 
 #include "_Terminal.h"
+#include "a_cabecalho_main.h"
 
 
 #define MIN 3
@@ -99,8 +100,45 @@ void cadastrarPalestra()
     alteraData(&data);
     alteraAssunto(&palestra);
     alteraSinopse(&palestra);
+
+    do
+    {
+        
     exibirPalestra(&palestra,&data);
-    
+
+    printf("Deseja cadastrar um auditorio ? (S / N)");
+    printf("Digite Q para abandonar o cadastro");
+
+        char opc;
+        //fflush(stdin);
+        //opc = getchar();
+        scanf("%s%*c", &opc);
+        fflush(stdin);
+        
+        
+
+        switch(opc)
+        {
+            case 'q':
+            case 'Q':
+                menuInicial();
+                break;
+
+            case 's':
+            case 'S':
+                auditorio();
+                break;
+
+            case 'n':
+            case 'N':
+                
+                break;
+            
+            default:
+                printf("Opcão invalida!");
+            break;
+        }
+    }while(1);
 
 }
 
@@ -265,47 +303,38 @@ void exibirPalestra(PALESTRA *pale, DATA *dat)
         printf("   Local ............. : %s", pale->local);
         printf("   Data .............. : %d / %d / %d - %d : %d\n", dat->dia, dat->mes, dat->ano, dat->hora, dat->min);
         printf("   Assunto ........... : %s", pale->assunto);
-        printf("   Sinopse :\n %s \n", pale->sinopse);
+        printf("   Sinopse :\n\n   %s \n", pale->sinopse);
 
-            
-        printf("Dados estão corretos ? ( S / N ) : ");
+        printf("Dados estão corretos ? ( S / N )\n");
+        printf("Digite Q para abandonar o cadastro");
 
-        
         char opc;
         opc = getchar();
+        fflush(stdin);
 
         switch(opc)
         {
+            case 'q':
+            case 'Q':
+                menuInicial();
+                break;
+
             case 's':
-
-                printf("Dados gravados com sucesso !\n");
-                // GRAVAR DADOS
-                printf("Pressione ENTER para sair ... !");
-                getchar();
-                aux = 1;
-            break;
             case 'S':
-
-                printf("Dados gravados com sucesso !\n");
-                // GRAVAR DADOS
-                printf("Pressione ENTER para sair ... !");
-                getchar();
-                aux = 1;
-            break;
+                //aux = 1;
+                return;
 
             case 'n':
-                alteraDadosPalestra(pale,dat);
-            break;
             case 'N':
                 alteraDadosPalestra(pale,dat);
-            break;
+                break;
             
             default:
-                printf("Opcão invalida!");
+                printf("Opcão Invalida!\n\n");
             break;
         }
     }
-    while(aux != 1);
+    while(1);
 }        
 
 /* Fim da função exibir */

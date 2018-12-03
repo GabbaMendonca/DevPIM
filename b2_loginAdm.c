@@ -80,8 +80,6 @@ void loginAdm(void)
                         break;
 
                     default:
-
-                        printf("Opcão invalida!");
                         return;
                 }
             }
