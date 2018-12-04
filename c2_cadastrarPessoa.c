@@ -61,6 +61,7 @@ typedef struct
     void alteraDadosPessoa();
     void exibirPessoa();
 
+
 /*
     FIM DOS PROTOTIPOS DAS FUNÇÕES
 */
@@ -186,6 +187,7 @@ void exibirPessoa(PESSOA *p)
 {
     int aux;
     aux = 0;
+    FILE *cadastro;
 
     do
     {
@@ -213,11 +215,12 @@ void exibirPessoa(PESSOA *p)
             case 's':
             case 'S':
 
-                printf("Dados gravados com sucesso !\n");
-                // GRAVAR DADOS
-                printf("Pressione ENTER para sair ... !");
-                getchar();
-            return;
+                cadastro = fopen("cadastroPessoas.txt", "w");
+                fprintf(cadastro, "nome:%s email:%s idade:%d cpf:%d deficiencia:%s descricao:%s",p->nome,p->email,p->idade,p->cpf,p->deficiencia,p->descDef);
+                fclose(cadastro);
+
+                menuInicial();
+                break;
 
             case 'n':
             case 'N':
